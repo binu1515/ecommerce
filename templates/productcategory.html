@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script type="text/javascript" 
+        src="https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+  
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href=
+"https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+  
+    <!-- DataTables JS -->
+    <script src=
+"https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js">
+    </script>
+
+</head>
+<p><a href="/adminpanel" style="top: 100px; right: 110px;">Back</a></p>
+<div class="search-box">
+  <i class="material-icons">&#xE8B6;</i>
+  <input type="text" class="form-control" placeholder="Search&hellip;">
+</div>
+<div class="container" style="margin-bottom: 150px;">
+  <div>
+    <table class="table" id="myTable">
+      <thead class="thead-dark">
+        
+        <tr>
+          <th scope="col">category</th>
+          
+          
+          
+        </tr>
+      </thead>
+      {% for dee in products %}
+    
+
+      <tbody>
+        <tr class="bg-light">
+          <td>{{dee.cname}}</td>
+          
+          
+          <td>
+            <a href="/categoryupdate/{{ dee.id }}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            <a href="/detaildelete/{{ data.id }}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+        </td>
+          
+        </tr>
+      </tbody>
+      {% endfor %}
+      
+    </table>
+    <script>
+  
+      // Initialize the DataTable
+      $(document).ready(function () {
+          $('#myTable').DataTable({
+
+              // Enable the searching
+              // of the DataTable
+              searching: true
+          });
+      });
+    </script>
+  </div>
+</div>
+
+{% endblock %}

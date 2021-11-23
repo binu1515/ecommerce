@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block content %}
+<p><a href="/adminpanel" style="top: 100px; right: 110px;">Back</a></p>
+<p><a href="/addproduct" style="top: 100px; right: 110px;">add</a></p>
+<div class="container" style="margin-bottom: 150px;">
+  <div>
+    <table class="table" id="myTable">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Weight</th>
+          <th scope="col">desc</th>
+          
+          
+        </tr>
+      </thead>
+      {% for data in prod %}
+
+      <tbody>
+        <tr class="bg-light">
+          <td>{{data.product_name}}</td>
+          <td>{{data.category}}</td>
+          <td>{{data.price}}</td>
+          <td>{{data.weight}}</td>
+          <td><img src ="{{data.image}}" height="170px" width="160px"></td>
+          <td>{{data.disc}}</td>
+          <td><a type="button" class="btn btn-warning" href="/detailupdate/{{ data.id }}">Update</a>
+            <a type="button" class="btn btn-danger" href="/detaildelete/{{ data.id }}">Delete</a>
+        </td>
+          
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

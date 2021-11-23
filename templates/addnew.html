@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New user</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+ <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+
+</head>
+
+<body>
+    <a href="/"> register</a>
+    {% if user.is_authenticated %}
+      <li>Hello, {{user.username}}</li>
+     
+      {% else %}
+    
+      {% endif %}
+  
+  <h1><center>user Register</center></h1>
+  
+  
+  
+  <form method = "POST">
+  {% csrf_token %} 
+  {{customerForm}}
+    
+    <button type="submit" style="display: block;
+    margin: 0 auto;" class="btn btn-primary">Submit</button>
+  </form> 
+  </body>
+  </html>
